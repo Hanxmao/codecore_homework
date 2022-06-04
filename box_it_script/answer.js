@@ -14,9 +14,6 @@ for (i=0;i<input.length;i++){
     }
 }
 
-// console.log(input)
-// console.log(larLength)  
-
 function drawLine(num){
     return '━'.repeat(num)
 }
@@ -34,18 +31,20 @@ function drawBotBorder(num){
 }
 
 function drawBarsAround(str){
-    return '┃'+ str +''.repeat(larLength-str.length) + '┃'
+    return '│'+ str +' '.repeat(larLength-str.length) + '│'
 }
 
 function  boxIt(arr){
-    drawTopBorder(larLength)+'\n'
-    for(i=0;i<arr.length;i==){
-        if (arr[i]!==arr[arr.length-1]){
-        drawBarsAround(arr[i])+'\n'
-        drawMidBorder(larLength)+'\n'
-        } else {
-            drawBarsAround(arr[i])+'\n'
-            drawBotBorder(larLength)
-        }
+    console.log(drawTopBorder(larLength))+'\n'
+    for(i=0;i<arr.length;i++){
+        if (i!==(arr.length-1)){
+        console.log(drawBarsAround(arr[i]))+'\n'
+        console.log(drawMidBorder(larLength))+'\n'
+        } else if(i === arr.length-1) {
+            console.log(drawBarsAround(arr[i]))+'\n'
+            console.log(drawBotBorder(larLength))
+        } else{console.log('bug?')}
     }
 }
+
+console.log(boxIt(input))
