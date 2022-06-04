@@ -35,16 +35,22 @@ function drawBarsAround(str){
 }
 
 function  boxIt(arr){
-    console.log(drawTopBorder(larLength))+'\n'
-    for(i=0;i<arr.length;i++){
-        if (i!==(arr.length-1)){
-        console.log(drawBarsAround(arr[i]))+'\n'
-        console.log(drawMidBorder(larLength))+'\n'
-        } else if(i === arr.length-1) {
-            console.log(drawBarsAround(arr[i]))+'\n'
-            console.log(drawBotBorder(larLength))
-        } else{console.log('bug?')}
+    let result = ''
+    result = drawTopBorder(larLength)+'\n'
+    if (larLength !== 0){
+        for(i=0;i<arr.length;i++){
+            if (i!==(arr.length-1)){
+            result+=drawBarsAround(arr[i])+'\n'
+            result+=drawMidBorder(larLength)+'\n'
+            } else  {
+                result+=drawBarsAround(arr[i])+'\n'
+                result+=drawBotBorder(larLength)
+            } 
+        }
+    } else{
+        result+=drawBotBorder(0)
     }
+    return result
 }
 
 console.log(boxIt(input))
