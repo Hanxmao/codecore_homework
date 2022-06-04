@@ -6,7 +6,7 @@ while (process.argv[i]){
     i++
 } 
 
-//find largest element length of the input array
+//find largest length of elements
 let larLength=0
 for (i=0;i<input.length;i++){
     if(input[i].length>larLength){
@@ -14,6 +14,7 @@ for (i=0;i<input.length;i++){
     }
 }
 
+// functions to draw surrond border lines
 function drawLine(num){
     return '━'.repeat(num)
 }
@@ -30,10 +31,14 @@ function drawBotBorder(num){
     return '┕'+'━'.repeat(num)+'┙'
 }
 
+//draw lines with string
 function drawBarsAround(str){
     return '│'+ str +' '.repeat(larLength-str.length) + '│'
 }
 
+//get result from different situations: non-input, input
+//draw top first and then repeat the drawBarsAround and drawMidBorder functions, followed by drawing bot
+//get result directly for non-input
 function  boxIt(arr){
     let result = ''
     result = drawTopBorder(larLength)+'\n'
@@ -50,7 +55,7 @@ function  boxIt(arr){
     } else{
         result+=drawBotBorder(0)
     }
-    return result
+    return result 
 }
 
 console.log(boxIt(input))
