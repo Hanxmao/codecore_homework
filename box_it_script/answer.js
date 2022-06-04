@@ -1,3 +1,7 @@
+#!/home/nimbus-user/.nvm/versions/node/v17.6.0/bin/node
+//type 'chmod +x' and file name in terminal, after that can run a .js file without typing 'node'
+
+
 //user input as array
 const input = []
 let i =2
