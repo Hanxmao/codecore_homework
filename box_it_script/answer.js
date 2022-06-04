@@ -37,4 +37,15 @@ function drawBarsAround(str){
     return '┃'+ str +''.repeat(larLength-str.length) + '┃'
 }
 
-
+function  boxIt(arr){
+    drawTopBorder(larLength)+'\n'
+    for(i=0;i<arr.length;i==){
+        if (arr[i]!==arr[arr.length-1]){
+        drawBarsAround(arr[i])+'\n'
+        drawMidBorder(larLength)+'\n'
+        } else {
+            drawBarsAround(arr[i])+'\n'
+            drawBotBorder(larLength)
+        }
+    }
+}
