@@ -63,3 +63,5 @@ function  boxIt(arr){
 }
 
 console.log(boxIt(input))
+
+//csv file added, but can not find a way to pass the file to js without extension
