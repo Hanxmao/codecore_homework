@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 class Turtle{
     constructor(x,y){
         this.x= x
@@ -101,7 +103,8 @@ class Turtle{
         
         }// join the array into the result pattern
 
-        console.log(resultArr)  
+        console.log(resultArr) 
+        return resultArr 
     }        
          
     }
@@ -110,12 +113,9 @@ new Turtle(0, 0).forward(3).right().forward(4).print()
 new Turtle(0, 4).forward(3).left().forward(3).right().forward(5).right().forward(8).right().forward(5).right().forward(3).left().forward(3).print()
 
 
-let argu= process.argv[2]
-
-if (argu){
-    console.log("Homework_2 stretch#1 result:")
-    const arr= argu.split('-')
-
+//stretch#1
+//make output function
+const output = (arr)=>{
     let draw = undefined
     if (arr[0].includes('t')){
         draw= new Turtle(parseInt(arr[0][1]),parseInt(arr[0][3]))
@@ -129,13 +129,37 @@ if (argu){
             let num=ele.slice(1)
             draw.forward(num)
         } else if (ele.includes('r')){
-            draw.right()
+        draw.right()
         } else if (ele.includes('l')){
             draw.left()
-        } else {
-            console.log('Something went wrong in stretch 1 for loop')
+    }    else {
+            console.log('Something went wrong in output function')
         }
     }
-    draw.print()
+    return draw.print()
 }
 
+
+let argu= process.argv.slice(2)
+
+if (argu){
+    //stretch#2
+    if(argu[0].includes('--output')){
+        const file= argu[0].split('=')
+        fileName = file[1]
+        const arr = argu[1].split('-')
+        resultArr = output(arr) 
+        fs.writeFile(fileName,resultArr, (err)=>{
+            if (err){
+                console.log(err)
+            } else {
+                console.log(`🐢 Drawing written to ${fileName}`)
+            }
+        } )
+    } else {     
+        //stretch#1
+        console.log("Homework_2 stretch#1 result:")
+        const arr= argu[0].split('-')
+        output(arr)
+    }
+}
