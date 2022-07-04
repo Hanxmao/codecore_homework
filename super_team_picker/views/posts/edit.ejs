@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs') %>
+    <form action="/posts/<%-cohorts.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+        <div class="'form-control">
+            <label for="logoUrl" >Logo Url</label>
+            <input 
+            type="url"
+            class="form-control"
+            name="logoUrl"
+            placeholder="Paste your team logo url here"
+            value="<%= cohorts ? cohorts.logoUrl : '' %>"
+            >
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+            type="text"
+            class="form-control"
+            name="name"
+            placeholder="Type in your team's name"
+            value="<%= cohorts ? cohorts.name : '' %>"
+            >
+        </div>
+        <div class="form-group">
+            <label for="members">Members</label><br/>
+            <textarea
+            name="members"
+            placeholder="Type in your team members here"  
+            cols="80" 
+            rows="5"
+            ><%- cohorts ? cohorts.members : '' %>
+            </textarea>
+        </div>
+        <input type="submit" value="Save change" class="btn btn-outline-success">
+    </form>
+<%- include('../partials/footer.ejs') %>

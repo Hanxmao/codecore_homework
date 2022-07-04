@@ -1,0 +1,21 @@
+<%- include("../partials/header.ejs")%>
+    <% for(cohort of cohorts){ %>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%- cohort.logoUrl %>" class="img-fluid rounded-start" alt="<%- cohort.logoUrl %>">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%- cohort.name %></h5>
+                  <p class="card-text"><%- cohort.members %></p>
+                  <a href="/posts/<%- cohort.id %> " class="btn btn-outline-success">Show cohort</a> 
+                </div>
+              </div>
+            </div>
+
+        </div>
+    <% } %>
+
+
+<% include("../partials/footer.ejs")%>
